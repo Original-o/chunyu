@@ -59,23 +59,8 @@ class chunyuAutoSign:
             tmp = f'{userName}，签到成功，当前金币[{coins}]'
         else:
             tmp = f'{userName}，无需重复签到，当前金币[{coins}]'
-
-        t = threading.Thread(target=sendMail, args=('春雨医生签到', tmp, '收件箱'))
-        t.start()
-
-
-def sendMail(subject, body, receivers):
-    api = 'https://api.899988.xyz/sendMail/send'
-    data = {
-        'mailUserName': '邮箱',
-        'mailUserPwd': '授权码',
-        'sender': '邮箱',
-        'subject': subject,
-        'body': body,
-        'receivers': receivers
-    }
-    req = requests.post(api, data)
-    print(req.text)
+        
+        print(tmp)
 
 
 def main():
